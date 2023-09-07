@@ -1,6 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { Inter, Nunito_Sans } from "next/font/google";
+import { Nunito_Sans } from "next/font/google";
 import NavBar from "./components/NavBar";
 
 const nunitoSans = Nunito_Sans({

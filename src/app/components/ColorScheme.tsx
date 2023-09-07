@@ -3,20 +3,22 @@ import { useEffect, useState } from "react";
 import { BsMoon, BsSun } from "react-icons/bs";
 
 function ColorScheme() {
-  const [colorScheme, setColorScheme] = useState(
-    localStorage.getItem("theme") || "light"
-  );
+  const [colorScheme, setColorScheme] = useState("light");
 
   const handleColorScheme = () => {
     const newColorScheme = colorScheme === "dark" ? "light" : "dark";
     setColorScheme(newColorScheme);
   };
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setColorScheme(localStorage.getItem("theme") || "light");
+    }
+  }, []);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", colorScheme);
     localStorage.setItem("theme", colorScheme);
   }, [colorScheme]);
-  console.log(colorScheme);
   return (
     <button
       className="flex gap-2 text-lg items-center"

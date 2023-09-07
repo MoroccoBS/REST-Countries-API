@@ -1,8 +1,6 @@
 "use client";
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { AiOutlineSearch } from "react-icons/ai";
-import { MdCancel } from "react-icons/md";
 
 interface SearchProps {
   onSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
