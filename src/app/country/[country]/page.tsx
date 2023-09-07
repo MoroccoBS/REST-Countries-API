@@ -20,15 +20,10 @@ export default async function Page({ params }: Props) {
     ([key, value]) => value as Currency
   );
 
-  // const borders = countryData[0].borders.map((border: string) => {
-  //   return getCountryBorders(border);
-  // });
-
-  const borders = countryData[0].borders[0];
-
   const languages = Object.entries(countryData[0].languages).map(
     ([key, value]) => value as string
   );
+
   return (
     <div className="min-h-screen">
       <Link
@@ -111,14 +106,18 @@ export default async function Page({ params }: Props) {
           </div>
           <div className="flex items-center gap-4 flex-wrap justify-center">
             Border Countries:
-            {countryData[0].borders.map((border: string, index: number) => (
-              <h2
-                className="px-8 py-2 w-max shadow-xl bg-DarkBlue text-sm rounded-md"
-                key={index}
-              >
-                {border}
-              </h2>
-            ))}
+            {countryData[0].borders !== undefined ? (
+              countryData[0].borders.map((border: string, index: number) => (
+                <h2
+                  className="px-8 py-2 w-max shadow-xl bg-DarkBlue text-sm rounded-md"
+                  key={index}
+                >
+                  {border}
+                </h2>
+              ))
+            ) : (
+              <span className="text-Text/50"> Probably an Island</span>
+            )}
           </div>
         </div>
       </div>
