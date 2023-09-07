@@ -2,21 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --DarkBlue: hsl(209, 23%, 22%);
+  --VeryDarkBlueBg: hsl(207, 26%, 17%);
+  --VeryDarkBlueText: hsl(200, 15%, 8%);
+  --DarkGray: hsl(0, 0%, 52%);
+  --VeryLightGray: hsl(0, 0%, 98%);
+  --White: hsl(0, 0%, 100%);
+} */
+
+[data-theme="light"] {
+  --Blue: hsl(0, 0%, 98%);
+  --Bg: hsl(0, 0%, 98%);
+  --Text: hsl(200, 15%, 8%);
+  --BlueHover: "hsl(0, 0%, 75%)";
+  --Orange: "hsl(25, 100%, 53%)";
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+[data-theme="dark"] {
+  --Blue: hsl(209, 23%, 22%);
+  --Bg: hsl(207, 26%, 17%);
+  --Text: hsl(0, 0%, 98%);
+  --BlueHover: "hsl(209, 23%, 50%)";
+  --Orange: "hsl(25, 97%, 35%)";
 }
 
-body {
+/* body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -24,4 +38,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+body {
+  color: var(--Text);
+  background-color: var(--Bg);
+  min-height: 100vh;
 }
